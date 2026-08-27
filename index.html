@@ -1,0 +1,4521 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+    <title>Senhas Fracas | Maratona Tech 2026</title>
+
+
+
+    <style>
+
+
+
+        /* =========================================================
+
+           CONFIGURAÇÕES GERAIS
+
+        ========================================================= */
+
+
+
+        * {
+
+            margin: 0;
+
+            padding: 0;
+
+            box-sizing: border-box;
+
+            scroll-behavior: smooth;
+
+        }
+
+
+
+        body {
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            background: #07111f;
+
+            color: #ffffff;
+
+            line-height: 1.6;
+
+        }
+
+
+
+        :root {
+
+            --azul: #168cff;
+
+            --azul-escuro: #07111f;
+
+            --azul-card: #0d2036;
+
+            --verde: #20c878;
+
+            --vermelho: #ff4d5a;
+
+            --amarelo: #ffc533;
+
+            --branco: #ffffff;
+
+            --cinza: #aebdce;
+
+        }
+
+
+
+        a {
+
+            text-decoration: none;
+
+            color: inherit;
+
+        }
+
+
+
+        button {
+
+            font-family: inherit;
+
+        }
+
+
+
+        .container {
+
+            width: 90%;
+
+            max-width: 1200px;
+
+            margin: auto;
+
+        }
+
+
+
+
+
+        /* =========================================================
+
+           BARRA DE NAVEGAÇÃO
+
+        ========================================================= */
+
+
+
+        header {
+
+            position: fixed;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            z-index: 1000;
+
+            background: rgba(5, 15, 28, 0.92);
+
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+
+        }
+
+
+
+        nav {
+
+            height: 70px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+        }
+
+
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            font-size: 21px;
+
+            font-weight: bold;
+
+        }
+
+
+
+        .logo-icon {
+
+            width: 40px;
+
+            height: 40px;
+
+            border-radius: 12px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            background: #123a61;
+
+            font-size: 22px;
+
+        }
+
+
+
+        .menu {
+
+            display: flex;
+
+            gap: 20px;
+
+            list-style: none;
+
+        }
+
+
+
+        .menu a {
+
+            color: #c8d6e5;
+
+            font-size: 14px;
+
+            transition: 0.3s;
+
+        }
+
+
+
+        .menu a:hover {
+
+            color: var(--azul);
+
+        }
+
+
+
+        .menu-button {
+
+            display: none;
+
+            background: transparent;
+
+            border: none;
+
+            color: white;
+
+            font-size: 28px;
+
+            cursor: pointer;
+
+        }
+
+
+
+
+
+        /* =========================================================
+
+           HERO
+
+        ========================================================= */
+
+
+
+        .hero {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+
+                radial-gradient(circle at 80% 30%, rgba(22,140,255,0.22), transparent 30%),
+
+                radial-gradient(circle at 20% 80%, rgba(32,200,120,0.10), transparent 30%),
+
+                #07111f;
+
+            padding-top: 80px;
+
+        }
+
+
+
+        .hero-content {
+
+            max-width: 800px;
+
+        }
+
+
+
+        .tag {
+
+            display: inline-block;
+
+            padding: 8px 15px;
+
+            border: 1px solid rgba(22,140,255,0.5);
+
+            border-radius: 30px;
+
+            color: #61b5ff;
+
+            background: rgba(22,140,255,0.08);
+
+            margin-bottom: 20px;
+
+            font-size: 14px;
+
+        }
+
+
+
+        .hero h1 {
+
+            font-size: clamp(45px, 8vw, 90px);
+
+            line-height: 0.95;
+
+            margin-bottom: 25px;
+
+        }
+
+
+
+        .hero h1 span {
+
+            color: var(--azul);
+
+        }
+
+
+
+        .hero p {
+
+            color: var(--cinza);
+
+            max-width: 720px;
+
+            font-size: 19px;
+
+            margin-bottom: 35px;
+
+        }
+
+
+
+        .hero-buttons {
+
+            display: flex;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+
+        }
+
+
+
+        .btn {
+
+            padding: 14px 23px;
+
+            border-radius: 10px;
+
+            border: none;
+
+            cursor: pointer;
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+
+        }
+
+
+
+        .btn-primary {
+
+            background: var(--azul);
+
+            color: white;
+
+        }
+
+
+
+        .btn-primary:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow: 0 10px 30px rgba(22,140,255,0.3);
+
+        }
+
+
+
+        .btn-secondary {
+
+            background: transparent;
+
+            color: white;
+
+            border: 1px solid #35516d;
+
+        }
+
+
+
+        .btn-secondary:hover {
+
+            background: #102a44;
+
+        }
+
+
+
+        .lock-animation {
+
+            position: absolute;
+
+            right: 8%;
+
+            top: 35%;
+
+            font-size: 180px;
+
+            animation: floating 3s ease-in-out infinite;
+
+            filter: drop-shadow(0 0 35px rgba(22,140,255,0.4));
+
+        }
+
+
+
+        @keyframes floating {
+
+            0%,100% {
+
+                transform: translateY(0);
+
+            }
+
+
+
+            50% {
+
+                transform: translateY(-20px);
+
+            }
+
+        }
+
+
+
+
+
+        /* =========================================================
+
+           SEÇÕES
+
+        ========================================================= */
+
+
+
+        section {
+
+            padding: 100px 0;
+
+        }
+
+
+
+        .section-title {
+
+            text-align: center;
+
+            margin-bottom: 60px;
+
+        }
+
+
+
+        .section-title span {
+
+            color: var(--azul);
+
+            font-size: 14px;
+
+            text-transform: uppercase;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+        }
+
+
+
+        .section-title h2 {
+
+            font-size: 42px;
+
+            margin-top: 8px;
+
+        }
+
+
+
+        .section-title p {
+
+            color: var(--cinza);
+
+            max-width: 700px;
+
+            margin: 15px auto;
+
+        }
+
+
+
+
+
+        /* =========================================================
+
+           PROBLEMA
+
+        ========================================================= */
+
+
+
+        .problem-grid {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 30px;
+
+        }
+
+
+
+        .problem-card {
+
+            background: linear-gradient(145deg, #0d2036, #091827);
+
+            border: 1px solid #1d3b59;
+
+            border-radius: 20px;
+
+            padding: 35px;
+
+            transition: 0.3s;
+
+        }
+
+
+
+        .problem-card:hover {
+
+            transform: translateY(-6px);
+
+            border-color: var(--azul);
+
+        }
+
+
+
+        .problem-icon {
+
+            width: 60px;
+
+            height: 60px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 15px;
+
+            font-size: 30px;
+
+            background: rgba(22,140,255,0.12);
+
+            margin-bottom: 20px;
+
+        }
+
+
+
+        .problem-card h3 {
+
+            font-size: 23px;
+
+            margin-bottom: 12px;
+
+        }
+
+
+
+        .problem-card p {
+
+            color: var(--cinza);
+
+        }
+
+
+
+
+
+        /* =========================================================
+
+           EXEMPLOS
+
+        ========================================================= */
+
+
+
+        .password-examples {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 25px;
+
+            margin-top: 35px;
+
+        }
+
+
+
+        .example-box {
+
+            padding: 25px;
+
+            border-radius: 18px;
+
+        }
+
+
+
+        .weak {
+
+            background: rgba(255,77,90,0.08);
+
+            border: 1px solid rgba(255,77,90,0.4);
+
+        }
+
+
+
+        .strong {
+
+            background: rgba(32,200,120,0.08);
+
+            border: 1px solid rgba(32,200,120,0.4);
+
+        }
+
+
+
+        .example-box h3 {
+
+            margin-bottom: 15px;
+
+        }
+
+
+
+        .weak h3 {
+
+            color: var(--vermelho);
+
+        }
+
+
+
+        .strong h3 {
+
+            color: var(--verde);
+
+        }
+
+
+
+        .password-item {
+
+            background: rgba(0,0,0,0.25);
+
+            padding: 12px 15px;
+
+            border-radius: 8px;
+
+            margin: 8px 0;
+
+            font-family: monospace;
+
+        }
+
+
+
+
+
+        /* =========================================================
+
+           FLUXOGRAMA
+
+        ========================================================= */
+
+
+
+        #fluxograma {
+
+            background: #050d18;
+
+        }
+
+
+
+        .flow {
+
+            max-width: 900px;
+
+            margin: auto;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+        }
+
+
+
+        .flow-box {
+
+            width: min(500px, 90%);
+
+            padding: 20px;
+
+            text-align: center;
+
+            border-radius: 15px;
+
+            background: #102a44;
+
+            border: 1px solid #28608e;
+
+            position: relative;
+
+        }
+
+
+
+        .flow-box h3 {
+
+            margin-bottom: 5px;
+
+        }
+
+
+
+        .flow-box p {
+
+            color: #b8c9da;
+
+            font-size: 14px;
+
+        }
+
+
+
+        .flow-start {
+
+            background: #164d34;
+
+            border-color: var(--verde);
+
+        }
+
+
+
+        .flow-danger {
+
+            background: #4a1c23;
+
+            border-color: var(--vermelho);
+
+        }
+
+
+
+        .flow-safe {
+
+            background: #164d34;
+
+            border-color: var(--verde);
+
+        }
+
+
+
+        .flow-decision {
+
+            width: 190px;
+
+            height: 190px;
+
+            background: #493c18;
+
+            border: 2px solid var(--amarelo);
+
+            transform: rotate(45deg);
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            margin: 40px 0;
+
+        }
+
+
+
+        .flow-decision-content {
+
+            transform: rotate(-45deg);
+
+            text-align: center;
+
+            width: 130px;
+
+        }
+
+
+
+        .arrow {
+
+            font-size: 35px;
+
+            color: #7890a8;
+
+            margin: 5px;
+
+        }
+
+
+
+        .flow-branches {
+
+            width: 100%;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 30px;
+
+            position: relative;
+
+        }
+
+
+
+        .branch {
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+        }
+
+
+
+        .branch-label {
+
+            padding: 5px 15px;
+
+            border-radius: 20px;
+
+            font-weight: bold;
+
+            margin-bottom: 10px;
+
+        }
+
+
+
+        .label-no {
+
+            background: rgba(255,77,90,0.15);
+
+            color: #ff6873;
+
+        }
+
+
+
+        .label-yes {
+
+            background: rgba(32,200,120,0.15);
+
+            color: #4de394;
+
+        }
+
+
+
+
+
+        /* =========================================================
+
+           RISCOS
+
+        ========================================================= */
+
+
+
+        .risk-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+
+        }
+
+
+
+        .risk-card {
+
+            background: #0d2036;
+
+            border-radius: 18px;
+
+            border: 1px solid #1b3852;
+
+            padding: 28px;
+
+            transition: 0.3s;
+
+        }
+
+
+
+        .risk-card:hover {
+
+            transform: translateY(-8px);
+
+            border-color: var(--vermelho);
+
+        }
+
+
+
+        .risk-card .icon {
+
+            font-size: 35px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+
+        .risk-card h3 {
+
+            margin-bottom: 10px;
+
+        }
+
+
+
+        .risk-card p {
+
+            color: var(--cinza);
+
+            font-size: 14px;
+
+        }
+
+
+
+
+
+        /* =========================================================
+
+           PREVENÇÃO
+
+        ========================================================= */
+
+
+
+        .tips {
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 20px;
+
+        }
+
+
+
+        .tip {
+
+            display: flex;
+
+            gap: 18px;
+
+            padding: 25px;
+
+            background: #0d2036;
+
+            border: 1px solid #1b3852;
+
+            border-radius: 16px;
+
+        }
+
+
+
+        .check {
+
+            min-width: 45px;
+
+            height: 45px;
+
+            background: rgba(32,200,120,0.15);
+
+            border-radius: 50%;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            color: var(--verde);
+
+            font-size: 22px;
+
+        }
+
+
+
+        .tip h3 {
+
+            margin-bottom: 5px;
+
+        }
+
+
+
+        .tip p {
+
+            color: var(--cinza);
+
+            font-size: 14px;
+
+        }
+
+
+
+
+
+        /* =========================================================
+
+           VERIFICADOR DE SENHA
+
+        ========================================================= */
+
+
+
+        .checker {
+
+            max-width: 700px;
+
+            margin: auto;
+
+            background: #0d2036;
+
+            border: 1px solid #234663;
+
+            border-radius: 22px;
+
+            padding: 35px;
+
+        }
+
+
+
+        .input-container {
+
+            display: flex;
+
+            gap: 10px;
+
+        }
+
+
+
+        .input-container input {
+
+            flex: 1;
+
+            padding: 15px;
+
+            background: #07111f;
+
+            border: 1px solid #31516e;
+
+            border-radius: 10px;
+
+            color: white;
+
+            outline: none;
+
+            font-size: 16px;
+
+        }
+
+
+
+        .input-container input:focus {
+
+            border-color: var(--azul);
+
+        }
+
+
+
+        .toggle-password {
+
+            background: #17314b;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 10px;
+
+            padding: 0 18px;
+
+            cursor: pointer;
+
+        }
+
+
+
+        .strength-bar {
+
+            height: 10px;
+
+            background: #162b40;
+
+            border-radius: 20px;
+
+            margin-top: 20px;
+
+            overflow: hidden;
+
+        }
+
+
+
+        .strength-fill {
+
+            width: 0%;
+
+            height: 100%;
+
+            transition: 0.4s;
+
+        }
+
+
+
+        .strength-text {
+
+            margin-top: 10px;
+
+            font-weight: bold;
+
+        }
+
+
+
+        .criteria {
+
+            margin-top: 25px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 10px;
+
+        }
+
+
+
+        .criterion {
+
+            padding: 10px;
+
+            background: #081624;
+
+            border-radius: 8px;
+
+            color: #8298ad;
+
+            font-size: 14px;
+
+        }
+
+
+
+        .criterion.ok {
+
+            color: var(--verde);
+
+        }
+
+
+
+
+
+        /* =========================================================
+
+           QUIZ
+
+        ========================================================= */
+
+
+
+        .quiz {
+
+            max-width: 750px;
+
+            margin: auto;
+
+            background: #0d2036;
+
+            border-radius: 20px;
+
+            border: 1px solid #234663;
+
+            padding: 35px;
+
+        }
+
+
+
+        .question {
+
+            font-size: 21px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+
+        .option {
+
+            width: 100%;
+
+            padding: 15px;
+
+            margin: 10px 0;
+
+            background: #102a44;
+
+            color: white;
+
+            border: 1px solid #2a4964;
+
+            border-radius: 10px;
+
+            cursor: pointer;
+
+            text-align: left;
+
+            transition: 0.3s;
+
+        }
+
+
+
+        .option:hover {
+
+            border-color: var(--azul);
+
+            transform: translateX(5px);
+
+        }
+
+
+
+        .option.correct {
+
+            background: rgba(32,200,120,0.2);
+
+            border-color: var(--verde);
+
+        }
+
+
+
+        .option.wrong {
+
+            background: rgba(255,77,90,0.2);
+
+            border-color: var(--vermelho);
+
+        }
+
+
+
+        .quiz-result {
+
+            margin-top: 20px;
+
+            font-weight: bold;
+
+            min-height: 25px;
+
+        }
+
+
+
+
+
+        /* =========================================================
+
+           CONCLUSÃO
+
+        ========================================================= */
+
+
+
+        .conclusion {
+
+            background:
+
+                radial-gradient(circle at center, rgba(22,140,255,0.15), transparent 50%),
+
+                #050d18;
+
+            text-align: center;
+
+        }
+
+
+
+        .conclusion-box {
+
+            max-width: 800px;
+
+            margin: auto;
+
+        }
+
+
+
+        .big-lock {
+
+            font-size: 80px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+
+        .conclusion h2 {
+
+            font-size: 45px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+
+        .conclusion p {
+
+            color: var(--cinza);
+
+            font-size: 18px;
+
+        }
+
+
+
+
+
+        /* =========================================================
+
+           FOOTER
+
+        ========================================================= */
+
+
+
+        footer {
+
+            background: #030912;
+
+            padding: 35px 0;
+
+            text-align: center;
+
+            color: #71869b;
+
+            font-size: 14px;
+
+        }
+
+
+
+
+
+        /* =========================================================
+
+           ANIMAÇÃO DE ENTRADA
+
+        ========================================================= */
+
+
+
+        .reveal {
+
+            opacity: 0;
+
+            transform: translateY(35px);
+
+            transition: 0.7s;
+
+        }
+
+
+
+        .reveal.active {
+
+            opacity: 1;
+
+            transform: translateY(0);
+
+        }
+
+
+
+
+
+        /* =========================================================
+
+           RESPONSIVIDADE
+
+        ========================================================= */
+
+
+
+        @media (max-width: 900px) {
+
+
+
+            .lock-animation {
+
+                display: none;
+
+            }
+
+
+
+            .risk-grid {
+
+                grid-template-columns: 1fr 1fr;
+
+            }
+
+
+
+        }
+
+
+
+        @media (max-width: 700px) {
+
+
+
+            .menu-button {
+
+                display: block;
+
+            }
+
+
+
+            .menu {
+
+                display: none;
+
+                position: absolute;
+
+                top: 70px;
+
+                left: 0;
+
+                width: 100%;
+
+                background: #07111f;
+
+                flex-direction: column;
+
+                padding: 20px;
+
+            }
+
+
+
+            .menu.show {
+
+                display: flex;
+
+            }
+
+
+
+            .problem-grid,
+
+            .password-examples,
+
+            .risk-grid,
+
+            .tips {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+
+            .flow-branches {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+
+            .hero h1 {
+
+                font-size: 52px;
+
+            }
+
+
+
+            .hero p {
+
+                font-size: 16px;
+
+            }
+
+
+
+            .section-title h2 {
+
+                font-size: 34px;
+
+            }
+
+
+
+            .criteria {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+
+            .input-container {
+
+                flex-direction: column;
+
+            }
+
+
+
+            .toggle-password {
+
+                padding: 12px;
+
+            }
+
+
+
+        }
+
+
+
+    </style>
+
+</head>
+
+
+
+
+
+<body>
+
+
+
+
+
+    <!-- =========================================================
+
+         MENU
+
+    ========================================================= -->
+
+
+
+    <header>
+
+
+
+        <nav class="container">
+
+
+
+            <div class="logo">
+
+                <div class="logo-icon">🔐</div>
+
+                SenhaSegura
+
+            </div>
+
+
+
+            <button class="menu-button" onclick="toggleMenu()">
+
+                ☰
+
+            </button>
+
+
+
+            <ul class="menu" id="menu">
+
+
+
+                <li>
+
+                    <a href="#problema">Problema</a>
+
+                </li>
+
+
+
+                <li>
+
+                    <a href="#fluxograma">Fluxograma</a>
+
+                </li>
+
+
+
+                <li>
+
+                    <a href="#riscos">Riscos</a>
+
+                </li>
+
+
+
+                <li>
+
+                    <a href="#prevencao">Prevenção</a>
+
+                </li>
+
+
+
+                <li>
+
+                    <a href="#verificador">Verificador</a>
+
+                </li>
+
+
+
+                <li>
+
+                    <a href="#quiz">Quiz</a>
+
+                </li>
+
+
+
+            </ul>
+
+
+
+        </nav>
+
+
+
+    </header>
+
+
+
+
+
+    <!-- =========================================================
+
+         HERO
+
+    ========================================================= -->
+
+
+
+    <section class="hero">
+
+
+
+        <div class="container">
+
+
+
+            <div class="hero-content">
+
+
+
+                <span class="tag">
+
+                    MARATONA TECH 2026 • DILEMAS DIGITAIS
+
+                </span>
+
+
+
+                <h1>
+
+                    SENHAS
+
+                    <span>FRACAS</span>
+
+                </h1>
+
+
+
+                <p>
+
+                    Uma senha fraca pode parecer algo simples,
+
+                    mas pode abrir a porta para invasões,
+
+                    roubo de informações, golpes e perda de contas.
+
+                </p>
+
+
+
+                <div class="hero-buttons">
+
+
+
+                    <a href="#problema"
+
+                       class="btn btn-primary">
+
+                        Entender o problema
+
+                    </a>
+
+
+
+                    <a href="#fluxograma"
+
+                       class="btn btn-secondary">
+
+                        Ver fluxograma
+
+                    </a>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+        <div class="lock-animation">
+
+            🔒
+
+        </div>
+
+
+
+    </section>
+
+
+
+
+
+    <!-- =========================================================
+
+         PROBLEMA
+
+    ========================================================= -->
+
+
+
+    <section id="problema">
+
+
+
+        <div class="container">
+
+
+
+            <div class="section-title reveal">
+
+
+
+                <span>01 • QUAL É O PROBLEMA?</span>
+
+
+
+                <h2>
+
+                    Por que senhas fracas são perigosas?
+
+                </h2>
+
+
+
+                <p>
+
+                    Muitas pessoas criam senhas fáceis de lembrar,
+
+                    mas também fáceis de descobrir.
+
+                </p>
+
+
+
+            </div>
+
+
+
+
+
+            <div class="problem-grid">
+
+
+
+                <div class="problem-card reveal">
+
+
+
+                    <div class="problem-icon">
+
+                        🔓
+
+                    </div>
+
+
+
+                    <h3>
+
+                        Senhas previsíveis
+
+                    </h3>
+
+
+
+                    <p>
+
+                        Senhas como <b>123456</b>,
+
+                        <b>senha123</b>, nome da pessoa,
+
+                        nome do cachorro ou data de nascimento
+
+                        podem ser muito fáceis de descobrir.
+
+                    </p>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="problem-card reveal">
+
+
+
+                    <div class="problem-icon">
+
+                        🕵️
+
+                    </div>
+
+
+
+                    <h3>
+
+                        Tentativas de descoberta
+
+                    </h3>
+
+
+
+                    <p>
+
+                        Criminosos podem tentar combinações
+
+                        comuns ou utilizar informações públicas
+
+                        para tentar acessar uma conta.
+
+                    </p>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="problem-card reveal">
+
+
+
+                    <div class="problem-icon">
+
+                        📱
+
+                    </div>
+
+
+
+                    <h3>
+
+                        Muitas contas
+
+                    </h3>
+
+
+
+                    <p>
+
+                        Se a mesma senha for usada em vários
+
+                        sites, a invasão de uma conta pode
+
+                        colocar outras contas em risco.
+
+                    </p>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="problem-card reveal">
+
+
+
+                    <div class="problem-icon">
+
+                        ⚠️
+
+                    </div>
+
+
+
+                    <h3>
+
+                        Falta de proteção
+
+                    </h3>
+
+
+
+                    <p>
+
+                        Quando uma senha é fraca e não existe
+
+                        autenticação em dois fatores, a conta
+
+                        pode ficar ainda mais vulnerável.
+
+                    </p>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+            <!-- EXEMPLOS -->
+
+
+
+            <div class="password-examples">
+
+
+
+                <div class="example-box weak reveal">
+
+
+
+                    <h3>
+
+                        ❌ Exemplos de senhas fracas
+
+                    </h3>
+
+
+
+                    <div class="password-item">
+
+                        123456
+
+                    </div>
+
+
+
+                    <div class="password-item">
+
+                        senha123
+
+                    </div>
+
+
+
+                    <div class="password-item">
+
+                        andre123
+
+                    </div>
+
+
+
+                    <div class="password-item">
+
+                        01012010
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="example-box strong reveal">
+
+
+
+                    <h3>
+
+                        ✅ Características de uma senha forte
+
+                    </h3>
+
+
+
+                    <div class="password-item">
+
+                        Muitas letras
+
+                    </div>
+
+
+
+                    <div class="password-item">
+
+                        Números
+
+                    </div>
+
+
+
+                    <div class="password-item">
+
+                        Símbolos
+
+                    </div>
+
+
+
+                    <div class="password-item">
+
+                        Pelo menos 12 caracteres
+
+                    </div>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+    </section>
+
+
+
+
+
+    <!-- =========================================================
+
+         FLUXOGRAMA
+
+    ========================================================= -->
+
+
+
+    <section id="fluxograma">
+
+
+
+        <div class="container">
+
+
+
+            <div class="section-title reveal">
+
+
+
+                <span>02 • COMO ELE ACONTECE?</span>
+
+
+
+                <h2>
+
+                    Fluxograma do problema
+
+                </h2>
+
+
+
+                <p>
+
+                    Veja o caminho desde a criação de uma senha
+
+                    até as possíveis consequências.
+
+                </p>
+
+
+
+            </div>
+
+
+
+
+
+            <div class="flow reveal">
+
+
+
+
+
+                <div class="flow-box flow-start">
+
+
+
+                    <h3>
+
+                        🟢 INÍCIO
+
+                    </h3>
+
+
+
+                    <p>
+
+                        O usuário precisa criar uma senha.
+
+                    </p>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="arrow">
+
+                    ↓
+
+                </div>
+
+
+
+
+
+                <div class="flow-box">
+
+
+
+                    <h3>
+
+                        👤 Usuário cria uma senha
+
+                    </h3>
+
+
+
+                    <p>
+
+                        A pessoa escolhe uma senha para
+
+                        proteger sua conta.
+
+                    </p>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="arrow">
+
+                    ↓
+
+                </div>
+
+
+
+
+
+                <div class="flow-decision">
+
+
+
+                    <div class="flow-decision-content">
+
+
+
+                        <b>
+
+                            🔍 A senha é segura?
+
+                        </b>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="flow-branches">
+
+
+
+
+
+                    <!-- NÃO -->
+
+
+
+                    <div class="branch">
+
+
+
+                        <div class="branch-label label-no">
+
+                            ❌ NÃO
+
+                        </div>
+
+
+
+                        <div class="flow-box flow-danger">
+
+
+
+                            <h3>
+
+                                ⚠️ Senha fraca
+
+                            </h3>
+
+
+
+                            <p>
+
+                                Exemplos:
+
+                                123456, senha123,
+
+                                nome ou aniversário.
+
+                            </p>
+
+
+
+                        </div>
+
+
+
+                        <div class="arrow">
+
+                            ↓
+
+                        </div>
+
+
+
+                        <div class="flow-box flow-danger">
+
+
+
+                            <h3>
+
+                                🕵️ Tentativa de acesso
+
+                            </h3>
+
+
+
+                            <p>
+
+                                Um criminoso tenta descobrir
+
+                                ou utilizar a senha.
+
+                            </p>
+
+
+
+                        </div>
+
+
+
+                        <div class="arrow">
+
+                            ↓
+
+                        </div>
+
+
+
+                        <div class="flow-decision">
+
+
+
+                            <div class="flow-decision-content">
+
+
+
+                                <b>
+
+                                    🔓 Consegue acessar?
+
+                                </b>
+
+
+
+                            </div>
+
+
+
+                        </div>
+
+
+
+
+
+                        <div class="flow-box flow-danger">
+
+
+
+                            <h3>
+
+                                🚨 SIM
+
+                            </h3>
+
+
+
+                            <p>
+
+                                A conta pode ser invadida,
+
+                                causando roubo de dados,
+
+                                golpes e outros problemas.
+
+                            </p>
+
+
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+
+
+                    <!-- SIM -->
+
+
+
+                    <div class="branch">
+
+
+
+                        <div class="branch-label label-yes">
+
+                            ✅ SIM
+
+                        </div>
+
+
+
+                        <div class="flow-box flow-safe">
+
+
+
+                            <h3>
+
+                                🔐 Senha forte
+
+                            </h3>
+
+
+
+                            <p>
+
+                                A senha possui características
+
+                                que dificultam sua descoberta.
+
+                            </p>
+
+
+
+                        </div>
+
+
+
+                        <div class="arrow">
+
+                            ↓
+
+                        </div>
+
+
+
+                        <div class="flow-box flow-safe">
+
+
+
+                            <h3>
+
+                                🛡️ Conta mais protegida
+
+                            </h3>
+
+
+
+                            <p>
+
+                                O usuário também pode utilizar
+
+                                autenticação em dois fatores.
+
+                            </p>
+
+
+
+                        </div>
+
+
+
+                        <div class="arrow">
+
+                            ↓
+
+                        </div>
+
+
+
+                        <div class="flow-box flow-safe">
+
+
+
+                            <h3>
+
+                                🟢 FIM
+
+                            </h3>
+
+
+
+                            <p>
+
+                                Boas práticas ajudam a
+
+                                proteger a conta.
+
+                            </p>
+
+
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+    </section>
+
+
+
+
+
+    <!-- =========================================================
+
+         RISCOS
+
+    ========================================================= -->
+
+
+
+    <section id="riscos">
+
+
+
+        <div class="container">
+
+
+
+            <div class="section-title reveal">
+
+
+
+                <span>03 • QUAIS SÃO OS RISCOS?</span>
+
+
+
+                <h2>
+
+                    O que pode acontecer?
+
+                </h2>
+
+
+
+                <p>
+
+                    Uma senha fraca pode trazer consequências
+
+                    que vão muito além da perda da conta.
+
+                </p>
+
+
+
+            </div>
+
+
+
+
+
+            <div class="risk-grid">
+
+
+
+
+
+                <div class="risk-card reveal">
+
+
+
+                    <div class="icon">
+
+                        🔓
+
+                    </div>
+
+
+
+                    <h3>
+
+                        Perda da conta
+
+                    </h3>
+
+
+
+                    <p>
+
+                        O usuário pode perder o acesso a redes
+
+                        sociais, e-mail, jogos e aplicativos.
+
+                    </p>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="risk-card reveal">
+
+
+
+                    <div class="icon">
+
+                        🗂️
+
+                    </div>
+
+
+
+                    <h3>
+
+                        Roubo de dados
+
+                    </h3>
+
+
+
+                    <p>
+
+                        Informações pessoais, mensagens,
+
+                        fotos e outros dados podem ficar expostos.
+
+                    </p>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="risk-card reveal">
+
+
+
+                    <div class="icon">
+
+                        🎭
+
+                    </div>
+
+
+
+                    <h3>
+
+                        Golpes
+
+                    </h3>
+
+
+
+                    <p>
+
+                        Alguém pode utilizar uma conta invadida
+
+                        para tentar enganar amigos e familiares.
+
+                    </p>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="risk-card reveal">
+
+
+
+                    <div class="icon">
+
+                        💰
+
+                    </div>
+
+
+
+                    <h3>
+
+                        Prejuízo financeiro
+
+                    </h3>
+
+
+
+                    <p>
+
+                        Dependendo da conta comprometida,
+
+                        podem ocorrer tentativas de fraude
+
+                        e prejuízos financeiros.
+
+                    </p>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="risk-card reveal">
+
+
+
+                    <div class="icon">
+
+                        👁️
+
+                    </div>
+
+
+
+                    <h3>
+
+                        Perda de privacidade
+
+                    </h3>
+
+
+
+                    <p>
+
+                        Dados pessoais e informações privadas
+
+                        podem ser visualizados por terceiros.
+
+                    </p>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="risk-card reveal">
+
+
+
+                    <div class="icon">
+
+                        📱
+
+                    </div>
+
+
+
+                    <h3>
+
+                        Outras contas em risco
+
+                    </h3>
+
+
+
+                    <p>
+
+                        Reutilizar a mesma senha em vários lugares
+
+                        aumenta o impacto de uma invasão.
+
+                    </p>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+    </section>
+
+
+
+
+
+    <!-- =========================================================
+
+         PREVENÇÃO
+
+    ========================================================= -->
+
+
+
+    <section id="prevencao">
+
+
+
+        <div class="container">
+
+
+
+            <div class="section-title reveal">
+
+
+
+                <span>04 • COMO EVITAR?</span>
+
+
+
+                <h2>
+
+                    Proteja suas contas
+
+                </h2>
+
+
+
+                <p>
+
+                    Algumas práticas simples aumentam bastante
+
+                    a segurança das suas contas.
+
+                </p>
+
+
+
+            </div>
+
+
+
+
+
+            <div class="tips">
+
+
+
+
+
+                <div class="tip reveal">
+
+
+
+                    <div class="check">
+
+                        ✓
+
+                    </div>
+
+
+
+                    <div>
+
+
+
+                        <h3>
+
+                            Use senhas longas
+
+                        </h3>
+
+
+
+                        <p>
+
+                            Prefira senhas com 12 caracteres
+
+                            ou mais.
+
+                        </p>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="tip reveal">
+
+
+
+                    <div class="check">
+
+                        ✓
+
+                    </div>
+
+
+
+                    <div>
+
+
+
+                        <h3>
+
+                            Misture caracteres
+
+                        </h3>
+
+
+
+                        <p>
+
+                            Combine letras maiúsculas,
+
+                            minúsculas, números e símbolos.
+
+                        </p>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="tip reveal">
+
+
+
+                    <div class="check">
+
+                        ✓
+
+                    </div>
+
+
+
+                    <div>
+
+
+
+                        <h3>
+
+                            Não use informações pessoais
+
+                        </h3>
+
+
+
+                        <p>
+
+                            Evite nome, aniversário, telefone,
+
+                            nome do animal ou outras informações fáceis.
+
+                        </p>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="tip reveal">
+
+
+
+                    <div class="check">
+
+                        ✓
+
+                    </div>
+
+
+
+                    <div>
+
+
+
+                        <h3>
+
+                            Não reutilize senhas
+
+                        </h3>
+
+
+
+                        <p>
+
+                            Use senhas diferentes para contas
+
+                            importantes.
+
+                        </p>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="tip reveal">
+
+
+
+                    <div class="check">
+
+                        ✓
+
+                    </div>
+
+
+
+                    <div>
+
+
+
+                        <h3>
+
+                            Ative o 2FA
+
+                        </h3>
+
+
+
+                        <p>
+
+                            A autenticação em dois fatores adiciona
+
+                            uma camada extra de segurança.
+
+                        </p>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="tip reveal">
+
+
+
+                    <div class="check">
+
+                        ✓
+
+                    </div>
+
+
+
+                    <div>
+
+
+
+                        <h3>
+
+                            Cuidado com links
+
+                        </h3>
+
+
+
+                        <p>
+
+                            Não coloque sua senha em páginas
+
+                            suspeitas recebidas por mensagens ou e-mail.
+
+                        </p>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+    </section>
+
+
+
+
+
+    <!-- =========================================================
+
+         VERIFICADOR
+
+    ========================================================= -->
+
+
+
+    <section id="verificador">
+
+
+
+        <div class="container">
+
+
+
+            <div class="section-title reveal">
+
+
+
+                <span>PROTÓTIPO DIGITAL</span>
+
+
+
+                <h2>
+
+                    🔐 Verificador de senha
+
+                </h2>
+
+
+
+                <p>
+
+                    Digite uma senha de teste para visualizar
+
+                    algumas características de segurança.
+
+                </p>
+
+
+
+            </div>
+
+
+
+
+
+            <div class="checker reveal">
+
+
+
+                <div class="input-container">
+
+
+
+                    <input
+
+                        type="password"
+
+                        id="password"
+
+                        placeholder="Digite uma senha de teste..."
+
+                        oninput="checkPassword()"
+
+                    >
+
+
+
+                    <button
+
+                        class="toggle-password"
+
+                        onclick="togglePassword()"
+
+                    >
+
+                        👁️
+
+                    </button>
+
+
+
+                </div>
+
+
+
+
+
+                <div class="strength-bar">
+
+
+
+                    <div
+
+                        class="strength-fill"
+
+                        id="strengthFill">
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+                <div
+
+                    class="strength-text"
+
+                    id="strengthText">
+
+                    Digite uma senha para começar.
+
+                </div>
+
+
+
+
+
+                <div class="criteria">
+
+
+
+                    <div
+
+                        class="criterion"
+
+                        id="length">
+
+                        ○ 12 caracteres ou mais
+
+                    </div>
+
+
+
+                    <div
+
+                        class="criterion"
+
+                        id="upper">
+
+                        ○ Letra maiúscula
+
+                    </div>
+
+
+
+                    <div
+
+                        class="criterion"
+
+                        id="lower">
+
+                        ○ Letra minúscula
+
+                    </div>
+
+
+
+                    <div
+
+                        class="criterion"
+
+                        id="number">
+
+                        ○ Número
+
+                    </div>
+
+
+
+                    <div
+
+                        class="criterion"
+
+                        id="symbol">
+
+                        ○ Símbolo
+
+                    </div>
+
+
+
+                    <div
+
+                        class="criterion"
+
+                        id="different">
+
+                        ○ Evita padrões óbvios
+
+                    </div>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+    </section>
+
+
+
+
+
+    <!-- =========================================================
+
+         QUIZ
+
+    ========================================================= -->
+
+
+
+    <section id="quiz">
+
+
+
+        <div class="container">
+
+
+
+            <div class="section-title reveal">
+
+
+
+                <span>DESAFIO</span>
+
+
+
+                <h2>
+
+                    🧠 Teste seus conhecimentos
+
+                </h2>
+
+
+
+                <p>
+
+                    Veja se você entendeu como proteger
+
+                    suas contas.
+
+                </p>
+
+
+
+            </div>
+
+
+
+
+
+            <div class="quiz reveal">
+
+
+
+                <div class="question">
+
+                    Qual dessas opções é uma boa prática
+
+                    para proteger uma conta?
+
+                </div>
+
+
+
+
+
+                <button
+
+                    class="option"
+
+                    onclick="answer(this, false)">
+
+                    A) Usar 123456 porque é fácil de lembrar
+
+                </button>
+
+
+
+
+
+                <button
+
+                    class="option"
+
+                    onclick="answer(this, false)">
+
+                    B) Usar a mesma senha em todos os sites
+
+                </button>
+
+
+
+
+
+                <button
+
+                    class="option"
+
+                    onclick="answer(this, true)">
+
+                    C) Usar uma senha longa e ativar o 2FA
+
+                </button>
+
+
+
+
+
+                <button
+
+                    class="option"
+
+                    onclick="answer(this, false)">
+
+                    D) Usar a data de nascimento como senha
+
+                </button>
+
+
+
+
+
+                <div
+
+                    class="quiz-result"
+
+                    id="quizResult">
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+    </section>
+
+
+
+
+
+    <!-- =========================================================
+
+         CONCLUSÃO
+
+    ========================================================= -->
+
+
+
+    <section class="conclusion">
+
+
+
+        <div class="container">
+
+
+
+            <div class="conclusion-box reveal">
+
+
+
+                <div class="big-lock">
+
+                    🔐
+
+                </div>
+
+
+
+                <h2>
+
+                    Sua senha é a chave
+
+                    da sua segurança.
+
+                </h2>
+
+
+
+                <p>
+
+                    Senhas fortes, diferentes e acompanhadas
+
+                    de autenticação em dois fatores ajudam
+
+                    a proteger suas informações digitais.
+
+                </p>
+
+
+
+                <br>
+
+
+
+                <p>
+
+                    <b>
+
+                        Pense antes de criar.
+
+                        Proteja suas informações.
+
+                        Proteja você.
+
+                    </b>
+
+                </p>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+    </section>
+
+
+
+
+
+    <!-- =========================================================
+
+         FOOTER
+
+    ========================================================= -->
+
+
+
+    <footer>
+
+
+
+        <div class="container">
+
+
+
+            <p>
+
+                🔐 SenhaSegura • Maratona Tech 2026
+
+            </p>
+
+
+
+            <p>
+
+                Projeto educativo sobre segurança digital.
+
+            </p>
+
+
+
+        </div>
+
+
+
+    </footer>
+
+
+
+
+
+    <!-- =========================================================
+
+         JAVASCRIPT
+
+    ========================================================= -->
+
+
+
+    <script>
+
+
+
+
+
+        /* =====================================================
+
+           MENU MOBILE
+
+        ===================================================== */
+
+
+
+        function toggleMenu() {
+
+
+
+            const menu =
+
+                document.getElementById("menu");
+
+
+
+            menu.classList.toggle("show");
+
+
+
+        }
+
+
+
+
+
+        /* =====================================================
+
+           FECHAR MENU AO CLICAR
+
+        ===================================================== */
+
+
+
+        document
+
+            .querySelectorAll(".menu a")
+
+            .forEach(link => {
+
+
+
+                link.addEventListener("click", () => {
+
+
+
+                    document
+
+                        .getElementById("menu")
+
+                        .classList
+
+                        .remove("show");
+
+
+
+                });
+
+
+
+            });
+
+
+
+
+
+        /* =====================================================
+
+           VERIFICADOR DE SENHA
+
+        ===================================================== */
+
+
+
+        function checkPassword() {
+
+
+
+            const password =
+
+                document.getElementById("password").value;
+
+
+
+            const fill =
+
+                document.getElementById("strengthFill");
+
+
+
+            const text =
+
+                document.getElementById("strengthText");
+
+
+
+
+
+            const length =
+
+                document.getElementById("length");
+
+
+
+            const upper =
+
+                document.getElementById("upper");
+
+
+
+            const lower =
+
+                document.getElementById("lower");
+
+
+
+            const number =
+
+                document.getElementById("number");
+
+
+
+            const symbol =
+
+                document.getElementById("symbol");
+
+
+
+            const different =
+
+                document.getElementById("different");
+
+
+
+
+
+            let score = 0;
+
+
+
+
+
+            /* Comprimento */
+
+
+
+            if (password.length >= 12) {
+
+
+
+                score++;
+
+
+
+                length.classList.add("ok");
+
+
+
+                length.innerHTML =
+
+                    "✓ 12 caracteres ou mais";
+
+
+
+            } else {
+
+
+
+                length.classList.remove("ok");
+
+
+
+                length.innerHTML =
+
+                    "○ 12 caracteres ou mais";
+
+
+
+            }
+
+
+
+
+
+            /* Maiúscula */
+
+
+
+            if (/[A-Z]/.test(password)) {
+
+
+
+                score++;
+
+
+
+                upper.classList.add("ok");
+
+
+
+                upper.innerHTML =
+
+                    "✓ Letra maiúscula";
+
+
+
+            } else {
+
+
+
+                upper.classList.remove("ok");
+
+
+
+                upper.innerHTML =
+
+                    "○ Letra maiúscula";
+
+
+
+            }
+
+
+
+
+
+            /* Minúscula */
+
+
+
+            if (/[a-z]/.test(password)) {
+
+
+
+                score++;
+
+
+
+                lower.classList.add("ok");
+
+
+
+                lower.innerHTML =
+
+                    "✓ Letra minúscula";
+
+
+
+            } else {
+
+
+
+                lower.classList.remove("ok");
+
+
+
+                lower.innerHTML =
+
+                    "○ Letra minúscula";
+
+
+
+            }
+
+
+
+
+
+            /* Número */
+
+
+
+            if (/[0-9]/.test(password)) {
+
+
+
+                score++;
+
+
+
+                number.classList.add("ok");
+
+
+
+                number.innerHTML =
+
+                    "✓ Número";
+
+
+
+            } else {
+
+
+
+                number.classList.remove("ok");
+
+
+
+                number.innerHTML =
+
+                    "○ Número";
+
+
+
+            }
+
+
+
+
+
+            /* Símbolo */
+
+
+
+            if (/[^A-Za-z0-9]/.test(password)) {
+
+
+
+                score++;
+
+
+
+                symbol.classList.add("ok");
+
+
+
+                symbol.innerHTML =
+
+                    "✓ Símbolo";
+
+
+
+            } else {
+
+
+
+                symbol.classList.remove("ok");
+
+
+
+                symbol.innerHTML =
+
+                    "○ Símbolo";
+
+
+
+            }
+
+
+
+
+
+            /* Padrões óbvios */
+
+
+
+            const obvious = [
+
+                "123456",
+
+                "password",
+
+                "senha",
+
+                "qwerty",
+
+                "123123"
+
+            ];
+
+
+
+            const lowerPassword =
+
+                password.toLowerCase();
+
+
+
+            const isObvious =
+
+                obvious.some(item =>
+
+                    lowerPassword.includes(item)
+
+                );
+
+
+
+
+
+            if (
+
+                password.length > 0 &&
+
+                !isObvious
+
+            ) {
+
+
+
+                score++;
+
+
+
+                different.classList.add("ok");
+
+
+
+                different.innerHTML =
+
+                    "✓ Evita padrões óbvios";
+
+
+
+            } else {
+
+
+
+                different.classList.remove("ok");
+
+
+
+                different.innerHTML =
+
+                    "○ Evita padrões óbvios";
+
+
+
+            }
+
+
+
+
+
+            /* Resultado */
+
+
+
+            if (password.length === 0) {
+
+
+
+                fill.style.width = "0%";
+
+
+
+                text.innerHTML =
+
+                    "Digite uma senha para começar.";
+
+
+
+                return;
+
+            }
+
+
+
+
+
+            const percentage =
+
+                (score / 6) * 100;
+
+
+
+            fill.style.width =
+
+                percentage + "%";
+
+
+
+
+
+            if (score <= 2) {
+
+
+
+                text.innerHTML =
+
+                    "🔴 SENHA FRACA";
+
+
+
+            }
+
+
+
+            else if (score <= 4) {
+
+
+
+                text.innerHTML =
+
+                    "🟡 SENHA MÉDIA";
+
+
+
+            }
+
+
+
+            else {
+
+
+
+                text.innerHTML =
+
+                    "🟢 SENHA FORTE";
+
+
+
+            }
+
+
+
+        }
+
+
+
+
+
+        /* =====================================================
+
+           MOSTRAR / ESCONDER SENHA
+
+        ===================================================== */
+
+
+
+        function togglePassword() {
+
+
+
+            const input =
+
+                document.getElementById("password");
+
+
+
+            if (input.type === "password") {
+
+
+
+                input.type = "text";
+
+
+
+            } else {
+
+
+
+                input.type = "password";
+
+
+
+            }
+
+
+
+        }
+
+
+
+
+
+        /* =====================================================
+
+           QUIZ
+
+        ===================================================== */
+
+
+
+        function answer(button, correct) {
+
+
+
+            const result =
+
+                document.getElementById("quizResult");
+
+
+
+            const options =
+
+                document.querySelectorAll(".option");
+
+
+
+
+
+            options.forEach(option => {
+
+
+
+                option.disabled = true;
+
+
+
+            });
+
+
+
+
+
+            if (correct) {
+
+
+
+                button.classList.add("correct");
+
+
+
+                result.innerHTML =
+
+                    "✅ Muito bem! Uma senha forte combinada com 2FA aumenta a proteção da conta.";
+
+
+
+                result.style.color =
+
+                    "#20c878";
+
+
+
+            } else {
+
+
+
+                button.classList.add("wrong");
+
+
+
+                result.innerHTML =
+
+                    "❌ Essa não é a melhor opção. Tente novamente na próxima rodada.";
+
+
+
+                result.style.color =
+
+                    "#ff4d5a";
+
+
+
+            }
+
+
+
+        }
+
+
+
+
+
+        /* =====================================================
+
+           ANIMAÇÃO DAS SEÇÕES
+
+        ===================================================== */
+
+
+
+        const reveals =
+
+            document.querySelectorAll(".reveal");
+
+
+
+
+
+        function revealOnScroll() {
+
+
+
+            reveals.forEach(element => {
+
+
+
+                const windowHeight =
+
+                    window.innerHeight;
+
+
+
+                const elementTop =
+
+                    element.getBoundingClientRect().top;
+
+
+
+                if (
+
+                    elementTop <
+
+                    windowHeight - 80
+
+                ) {
+
+
+
+                    element.classList.add("active");
+
+
+
+                }
+
+
+
+            });
+
+
+
+        }
+
+
+
+
+
+        window.addEventListener(
+
+            "scroll",
+
+            revealOnScroll
+
+        );
+
+
+
+
+
+        revealOnScroll();
+
+
+
+
+
+        /* =====================================================
+
+           PROTEÇÃO EXTRA PARA O PROTÓTIPO
+
+        ===================================================== */
+
+
+
+        /*
+
+            IMPORTANTE:
+
+
+
+            Este verificador existe apenas para demonstração
+
+            no trabalho escolar.
+
+
+
+            Ele NÃO envia a senha para nenhum servidor.
+
+
+
+            A senha digitada fica somente no navegador
+
+            enquanto a página está aberta.
+
+        */
+
+
+
+
+
+        /* =====================================================
+
+           MENSAGEM NO CONSOLE
+
+        ===================================================== */
+
+
+
+        console.log(
+
+            "🔐 SenhaSegura carregado com sucesso!"
+
+        );
+
+
+
+        console.log(
+
+            "Projeto educativo - Maratona Tech 2026"
+
+        );
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+
+
+</html>
